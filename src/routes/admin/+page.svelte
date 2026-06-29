@@ -17,6 +17,8 @@
   import {
     ADJUSTMENT_NAME,
     ADMIN_NAME,
+    ART_NOTICE,
+    ART_SOURCES,
     AUDIT_NAME,
     DISCLAIMER,
     LEDGER_NAME,
@@ -39,6 +41,13 @@
     </div>
     <Shield size={34} />
   </div>
+
+  <figure class="art-banner no-print">
+    <img src="/art/the-liahona.jpg" alt="The Liahona" />
+    <figcaption>
+      <a href={ART_SOURCES.liahona}>The Liahona</a> from Gospel Media. {ART_NOTICE}
+    </figcaption>
+  </figure>
 
   {#if form?.message}
     <p class:message={true} class:error={!form.ok}>{form.message}</p>
@@ -518,10 +527,10 @@
     grid-template-columns: 1fr auto;
     gap: 12px;
     min-height: 168px;
-    border: 2px solid #153d4f;
+    border: 2px solid var(--color-navy);
     border-radius: 8px;
     background: #fffdf5;
-    color: #153d4f;
+    color: var(--color-navy);
     padding: 14px;
     page-break-inside: avoid;
   }
@@ -547,9 +556,9 @@
     grid-column: 1 / -1;
     display: grid;
     gap: 3px;
-    border-top: 1px solid #c9d5d0;
+    border-top: 1px solid var(--color-line);
     padding-top: 8px;
-    color: #284955;
+    color: var(--color-muted);
   }
 
   .bill-kicker {

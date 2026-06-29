@@ -1,6 +1,6 @@
 <script lang="ts">
   import { KeyRound } from '@lucide/svelte';
-  import { DISCLAIMER } from '$lib/constants';
+  import { ART_NOTICE, ART_SOURCES, DISCLAIMER } from '$lib/constants';
 
   export let data;
   export let form;
@@ -15,6 +15,12 @@
       Do not reuse a real banking, school, or device PIN.
     </p>
     <p class="fine-print">{DISCLAIMER}</p>
+    <figure class="art-frame auth-art">
+      <img src="/art/the-liahona.jpg" alt="The Liahona" />
+      <figcaption>
+        <a href={ART_SOURCES.liahona}>The Liahona</a> from Gospel Media. {ART_NOTICE}
+      </figcaption>
+    </figure>
   </div>
 
   <form method="POST" class="panel stack">
@@ -55,6 +61,10 @@
   .welcome p {
     max-width: 58ch;
     margin: 0;
+  }
+
+  .auth-art {
+    max-width: 580px;
   }
 
   @media (min-width: 760px) {

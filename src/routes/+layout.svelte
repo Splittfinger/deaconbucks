@@ -9,7 +9,16 @@
     Wallet
   } from '@lucide/svelte';
   import { page } from '$app/stores';
-  import { ADMIN_NAME, APP_NAME, DISCLAIMER, LEDGER_NAME, MARKET_NAME, WALLET_NAME } from '$lib/constants';
+  import {
+    ADMIN_NAME,
+    APP_NAME,
+    ART_NOTICE,
+    ART_SOURCES,
+    DISCLAIMER,
+    LEDGER_NAME,
+    MARKET_NAME,
+    WALLET_NAME
+  } from '$lib/constants';
 
   export let data;
 
@@ -70,20 +79,42 @@
   <footer>
     <strong>{APP_NAME}</strong>
     <span>{DISCLAIMER}</span>
+    <span>
+      {ART_NOTICE} Sources:
+      <a href={ART_SOURCES.liahona}>The Liahona</a>,
+      <a href={ART_SOURCES.lehiLiahona}>Lehi showing the Liahona to his family</a>.
+    </span>
   </footer>
 </div>
 
 <style>
+  :global(:root) {
+    --color-ink: #212225;
+    --color-muted: #53575b;
+    --color-line: #d0d3d3;
+    --color-surface: #ffffff;
+    --color-surface-alt: #eff0f0;
+    --color-page: #f7f8f8;
+    --color-navy: #003057;
+    --color-blue: #006184;
+    --color-blue-bright: #007da5;
+    --color-link: #157493;
+    --color-gold: #ffb81c;
+    --color-green: #3f6f4f;
+    --shadow-panel: 0 12px 28px rgba(33, 34, 37, 0.08);
+  }
+
   :global(*) {
     box-sizing: border-box;
   }
 
   :global(html) {
     color-scheme: light;
-    background: #f7f8f4;
-    color: #17252b;
+    background: var(--color-page);
+    color: var(--color-ink);
     font-family:
-      Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      "Ensign:Sans", Roboto, Arial, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      sans-serif;
     letter-spacing: 0;
   }
 
@@ -100,7 +131,7 @@
   }
 
   :global(a) {
-    color: inherit;
+    color: var(--color-link);
   }
 
   :global(.page) {
@@ -128,11 +159,11 @@
   }
 
   :global(.panel) {
-    background: #ffffff;
-    border: 1px solid #d9e0dc;
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
     border-radius: 8px;
     padding: 16px;
-    box-shadow: 0 12px 30px rgba(22, 45, 53, 0.06);
+    box-shadow: var(--shadow-panel);
   }
 
   :global(.panel.flush) {
@@ -177,11 +208,11 @@
   }
 
   :global(.muted) {
-    color: #65747a;
+    color: var(--color-muted);
   }
 
   :global(.fine-print) {
-    color: #65747a;
+    color: var(--color-muted);
     font-size: 0.86rem;
     line-height: 1.45;
   }
@@ -201,8 +232,8 @@
     justify-content: center;
     gap: 8px;
     border: 0;
-    border-radius: 8px;
-    background: #215c68;
+    border-radius: 4px;
+    background: var(--color-blue);
     color: #ffffff;
     padding: 10px 13px;
     font-weight: 750;
@@ -212,19 +243,19 @@
 
   :global(.button.secondary),
   :global(button.secondary) {
-    background: #eef4f2;
-    color: #17343a;
+    background: var(--color-surface-alt);
+    color: var(--color-ink);
   }
 
   :global(.button.warn),
   :global(button.warn) {
-    background: #8a3a3a;
+    background: #8c3f2b;
   }
 
   :global(label) {
     display: grid;
     gap: 6px;
-    color: #253a40;
+    color: var(--color-ink);
     font-size: 0.92rem;
     font-weight: 700;
   }
@@ -234,10 +265,10 @@
   :global(textarea) {
     width: 100%;
     min-height: 42px;
-    border: 1px solid #bfcbc7;
-    border-radius: 8px;
-    background: #ffffff;
-    color: #17252b;
+    border: 1px solid #878a8c;
+    border-radius: 4px;
+    background: var(--color-surface);
+    color: var(--color-ink);
     padding: 10px 12px;
   }
 
@@ -247,18 +278,18 @@
   }
 
   :global(.message) {
-    border-radius: 8px;
+    border-radius: 4px;
     padding: 11px 12px;
-    background: #eef7f1;
-    border: 1px solid #bed8c7;
-    color: #1f5131;
+    background: #eef6f2;
+    border: 1px solid #b9d3c6;
+    color: var(--color-green);
     font-weight: 700;
   }
 
   :global(.message.error) {
-    background: #fff0ef;
-    border-color: #edc3be;
-    color: #7d302c;
+    background: #fff4ee;
+    border-color: #e1b5a2;
+    color: #8c3f2b;
   }
 
   :global(.metric) {
@@ -277,8 +308,8 @@
     gap: 6px;
     width: fit-content;
     border-radius: 999px;
-    background: #f4f0df;
-    color: #4c4320;
+    background: #fff3cf;
+    color: #4d3b00;
     padding: 5px 9px;
     font-size: 0.78rem;
     font-weight: 800;
@@ -294,7 +325,7 @@
     grid-template-columns: 1fr auto;
     gap: 10px;
     align-items: center;
-    border-top: 1px solid #e8ede9;
+    border-top: 1px solid var(--color-line);
     padding: 12px 0;
   }
 
@@ -317,17 +348,72 @@
 
   :global(th),
   :global(td) {
-    border-bottom: 1px solid #e4ebe7;
+    border-bottom: 1px solid var(--color-line);
     padding: 10px;
     text-align: left;
     vertical-align: top;
   }
 
   :global(th) {
-    background: #f1f5f3;
-    color: #40535a;
+    background: var(--color-surface-alt);
+    color: var(--color-muted);
     font-size: 0.78rem;
     text-transform: uppercase;
+  }
+
+  :global(.art-frame) {
+    display: grid;
+    gap: 0;
+    margin: 0;
+    overflow: hidden;
+    border: 1px solid var(--color-line);
+    border-radius: 8px;
+    background: var(--color-surface);
+    box-shadow: var(--shadow-panel);
+  }
+
+  :global(.art-frame img) {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+  }
+
+  :global(.art-frame figcaption) {
+    padding: 9px 11px;
+    background: var(--color-surface);
+    color: var(--color-muted);
+    font-size: 0.75rem;
+    line-height: 1.35;
+  }
+
+  :global(.art-frame a) {
+    font-weight: 800;
+  }
+
+  :global(.art-banner) {
+    display: grid;
+    gap: 0;
+    margin: 0;
+    overflow: hidden;
+    border: 1px solid var(--color-line);
+    border-radius: 8px;
+    background: var(--color-surface);
+    box-shadow: var(--shadow-panel);
+  }
+
+  :global(.art-banner img) {
+    display: block;
+    width: 100%;
+    max-height: 260px;
+    object-fit: cover;
+  }
+
+  :global(.art-banner figcaption) {
+    padding: 9px 12px;
+    color: var(--color-muted);
+    font-size: 0.75rem;
+    line-height: 1.35;
   }
 
   .app-shell {
@@ -340,7 +426,7 @@
     display: grid;
     gap: 12px;
     padding: 14px 18px;
-    background: #153d4f;
+    background: var(--color-navy);
     color: #ffffff;
   }
 
@@ -348,8 +434,13 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    color: #ffffff;
     text-decoration: none;
     width: fit-content;
+  }
+
+  .brand:hover {
+    text-decoration: none;
   }
 
   .brand-mark {
@@ -359,8 +450,8 @@
     align-items: center;
     justify-content: center;
     border-radius: 8px;
-    background: #f4c95d;
-    color: #153d4f;
+    background: var(--color-gold);
+    color: var(--color-navy);
   }
 
   .brand strong,
@@ -369,7 +460,7 @@
   }
 
   .brand small {
-    color: #c8d9d9;
+    color: #c7dce4;
     font-size: 0.8rem;
   }
 
@@ -385,7 +476,7 @@
     place-items: center;
     gap: 3px;
     border-radius: 8px;
-    color: #dce8e8;
+    color: #d7e5ea;
     font-size: 0.75rem;
     font-weight: 800;
     text-decoration: none;
@@ -402,25 +493,31 @@
     gap: 8px;
     align-items: center;
     padding: 10px 18px;
-    background: #f4c95d;
-    color: #2f2b18;
+    background: var(--color-surface-alt);
+    color: var(--color-ink);
+    border-bottom: 4px solid var(--color-gold);
     font-size: 0.88rem;
     font-weight: 800;
   }
 
   main {
     background:
-      linear-gradient(180deg, rgba(33, 92, 104, 0.08), transparent 260px),
-      #f7f8f4;
+      linear-gradient(180deg, rgba(0, 97, 132, 0.08), transparent 260px),
+      var(--color-page);
   }
 
   footer {
     display: grid;
     gap: 4px;
     padding: 22px 18px;
-    background: #132f3c;
-    color: #dce8e8;
+    background: var(--color-navy);
+    color: #d7e5ea;
     font-size: 0.85rem;
+  }
+
+  footer a {
+    color: #ffffff;
+    font-weight: 800;
   }
 
   @media (min-width: 720px) {

@@ -1,6 +1,8 @@
 <script lang="ts">
   import { ArrowRightLeft, Banknote, Goal, QrCode, ReceiptText, Store } from '@lucide/svelte';
   import {
+    ART_NOTICE,
+    ART_SOURCES,
     CURRENCY_NAME,
     DEPOSIT_NAME,
     DISCLAIMER,
@@ -23,10 +25,18 @@
       <h1>Hi, {data.user.displayName}</h1>
       <p>{DISCLAIMER}</p>
     </div>
-    <div class="panel balance-panel">
-      <span class="muted">Current balance</span>
-      <strong>{formatBucks(data.balance)}</strong>
-      <span class="fine-print">Account code {data.user.accountCode}</span>
+    <div class="hero-side">
+      <figure class="art-frame wallet-art">
+        <img src="/art/the-liahona.jpg" alt="The Liahona" />
+        <figcaption>
+          <a href={ART_SOURCES.liahona}>The Liahona</a> from Gospel Media. {ART_NOTICE}
+        </figcaption>
+      </figure>
+      <div class="panel balance-panel">
+        <span class="muted">Current balance</span>
+        <strong>{formatBucks(data.balance)}</strong>
+        <span class="fine-print">Account code {data.user.accountCode}</span>
+      </div>
     </div>
   </div>
 
@@ -185,21 +195,26 @@
   .hero p {
     max-width: 70ch;
     margin: 0;
-    color: #40535a;
+    color: var(--color-muted);
     font-weight: 700;
+  }
+
+  .hero-side {
+    display: grid;
+    gap: 14px;
   }
 
   .balance-panel {
     display: grid;
     align-content: center;
     gap: 6px;
-    background: #153d4f;
+    background: var(--color-navy);
     color: #ffffff;
   }
 
   .balance-panel .muted,
   .balance-panel .fine-print {
-    color: #d6e5e5;
+    color: #d7e5ea;
   }
 
   .balance-panel strong {
@@ -212,9 +227,9 @@
     gap: 8px;
     min-height: 132px;
     align-content: center;
-    border: 1px dashed #adc5be;
+    border: 1px dashed #9bbbc6;
     border-radius: 8px;
-    background: #f5faf7;
+    background: #f3f8fa;
     padding: 16px;
   }
 

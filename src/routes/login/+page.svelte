@@ -1,6 +1,6 @@
 <script lang="ts">
   import { LogIn } from '@lucide/svelte';
-  import { APP_NAME, DISCLAIMER } from '$lib/constants';
+  import { APP_NAME, ART_NOTICE, ART_SOURCES, DISCLAIMER } from '$lib/constants';
 
   export let data;
   export let form;
@@ -14,6 +14,12 @@
       Sign in with the login code and PIN your adult leader gave you. Keep the code simple,
       private, and activity-only.
     </p>
+    <figure class="art-frame auth-art">
+      <img src="/art/the-liahona.jpg" alt="The Liahona" />
+      <figcaption>
+        <a href={ART_SOURCES.liahona}>The Liahona</a> from Gospel Media. {ART_NOTICE}
+      </figcaption>
+    </figure>
   </div>
 
   <form method="POST" class="panel stack">
@@ -69,8 +75,12 @@
   .welcome p {
     max-width: 56ch;
     margin: 0;
-    color: #40535a;
+    color: var(--color-muted);
     font-size: 1.05rem;
+  }
+
+  .auth-art {
+    max-width: 580px;
   }
 
   @media (min-width: 760px) {

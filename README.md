@@ -82,3 +82,14 @@ Then update `wrangler.toml` with the D1 `database_id`.
 - Receipt: Record of Stewardship
 - Admin adjustment: Clerk Correction
 - Savings goal placeholder: Liahona Goal
+
+## Artwork and colors
+
+The UI uses public colors observed on ChurchofJesusChrist.org, including `#003057`, `#006184`, `#007da5`, `#157493`, `#212225`, `#eff0f0`, and `#ffb81c`.
+
+The bundled artwork was downloaded from official Gospel Media pages for noncommercial youth-activity use:
+
+- The Liahona: https://www.churchofjesuschrist.org/media/image/the-liahona-66403dd?lang=eng
+- Lehi showing the Liahona to his family: https://www.churchofjesuschrist.org/media/image/lehi-liahona-f3b9363?lang=eng
+
+Do not add official Church logos or wording that implies endorsement.

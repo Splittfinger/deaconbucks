@@ -1,6 +1,6 @@
 <script lang="ts">
   import { ShieldCheck } from '@lucide/svelte';
-  import { APP_NAME, DISCLAIMER, MERCHANT_NAME } from '$lib/constants';
+  import { APP_NAME, ART_NOTICE, ART_SOURCES, DISCLAIMER, MERCHANT_NAME } from '$lib/constants';
 
   export let form;
 </script>
@@ -14,6 +14,13 @@
       Quorum Wallets are created in the Bishopric Vault.
     </p>
     <p class="fine-print">{DISCLAIMER}</p>
+    <figure class="art-frame auth-art">
+      <img src="/art/lehi-liahona.jpg" alt="Lehi showing the Liahona to his family" />
+      <figcaption>
+        <a href={ART_SOURCES.lehiLiahona}>Lehi showing the Liahona to his family</a> from Gospel Media.
+        {ART_NOTICE}
+      </figcaption>
+    </figure>
   </div>
 
   <form method="POST" class="panel stack">
@@ -74,6 +81,10 @@
   .welcome p {
     max-width: 58ch;
     margin: 0;
+  }
+
+  .auth-art {
+    max-width: 580px;
   }
 
   @media (min-width: 760px) {

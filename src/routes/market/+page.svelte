@@ -1,6 +1,6 @@
 <script lang="ts">
   import { ShoppingBag, Store } from '@lucide/svelte';
-  import { DISCLAIMER, MARKET_NAME, MERCHANT_NAME } from '$lib/constants';
+  import { ART_NOTICE, ART_SOURCES, DISCLAIMER, MARKET_NAME, MERCHANT_NAME } from '$lib/constants';
   import { formatBucks } from '$lib/format';
 
   export let data;
@@ -16,6 +16,14 @@
     </div>
     <Store size={32} />
   </div>
+
+  <figure class="art-banner">
+    <img src="/art/lehi-liahona.jpg" alt="Lehi showing the Liahona to his family" />
+    <figcaption>
+      <a href={ART_SOURCES.lehiLiahona}>Lehi showing the Liahona to his family</a> from Gospel Media.
+      {ART_NOTICE}
+    </figcaption>
+  </figure>
 
   {#if form?.message}
     <p class:message={true} class:error={!form.ok}>{form.message}</p>
@@ -64,7 +72,7 @@
 
   .item-card p {
     margin: 0;
-    color: #65747a;
+    color: var(--color-muted);
   }
 
   .item-footer {

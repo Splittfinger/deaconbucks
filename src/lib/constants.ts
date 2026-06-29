@@ -17,6 +17,14 @@ export const GOAL_NAME = 'Liahona Goal';
 export const DISCLAIMER =
   'Deacon Bucks are pretend activity points. No real money. No cash value. Not a financial institution.';
 
+export const ART_NOTICE =
+  'Gospel Media artwork is used for a noncommercial youth activity. No endorsement is implied.';
+
+export const ART_SOURCES = {
+  liahona: 'https://www.churchofjesuschrist.org/media/image/the-liahona-66403dd?lang=eng',
+  lehiLiahona: 'https://www.churchofjesuschrist.org/media/image/lehi-liahona-f3b9363?lang=eng'
+} as const;
+
 export const ROLE_LABELS = {
   DEACON: 'Deacon',
   ADMIN: 'Adult Leader'
