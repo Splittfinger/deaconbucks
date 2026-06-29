@@ -5,5 +5,5 @@ pages_build_output_dir = ".svelte-kit/cloudflare"
 [[d1_databases]]
 binding = "DB"
 database_name = "liahona-ledger"
-database_id = "00000000-0000-0000-0000-000000000000"
+database_id = "77d4d6a0-dd3e-49ba-a7f2-4d22225f95ff"
 migrations_dir = "migrations"
