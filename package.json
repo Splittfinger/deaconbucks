@@ -1,0 +1,33 @@
+{
+  "name": "liahona-ledger",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "dev": "vite dev",
+    "dev:cloudflare": "npm run build && wrangler pages dev .svelte-kit/cloudflare",
+    "build": "vite build",
+    "preview": "npm run build && wrangler pages dev .svelte-kit/cloudflare",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "db:migrate:local": "wrangler d1 migrations apply liahona-ledger --local",
+    "db:migrate:remote": "wrangler d1 migrations apply liahona-ledger --remote"
+  },
+  "dependencies": {
+    "@lucide/svelte": "^1.22.0",
+    "qrcode-generator": "^1.4.4"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20260629.1",
+    "@sveltejs/adapter-cloudflare": "^7.2.9",
+    "@sveltejs/kit": "^2.68.0",
+    "@sveltejs/vite-plugin-svelte": "^7.1.2",
+    "svelte": "^5.56.4",
+    "svelte-check": "^4.7.1",
+    "typescript": "^6.0.3",
+    "vite": "^8.1.0",
+    "wrangler": "^4.105.0"
+  }
+}
